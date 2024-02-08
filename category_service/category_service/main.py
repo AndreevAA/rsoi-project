@@ -17,6 +17,12 @@ app.include_router(router, tags=['Category API'])
 async def check_health() -> Dict:
     return {'Service': 'Category'}
 
+@app.exception_handler(NotFoundCategory)
+async def not_found_category_handler(request: Request, exc: NotFoundCategory) -> JSONResponse:
+    return JSONResponse(
+        status_code=status.HTTP_404_NOT_FOUND,
+        content={'message': 'Category not found'},
+    )
 
 if __name__ == "__main__":
     run_db_migrations(DB_CONFIG.dict(), 'category_service/db/migrations/')
