@@ -1,16 +1,17 @@
 from typing import List
 from uuid import UUID
 
-from fastapi import APIRouter, status, Depends
+from fastapi import APIRouter, Depends, status
 
-from notes_service.db.repository import get_note_repo, NoteRepository
 from notes_service.auth import get_current_user, get_superuser
-from notes_service.schemas import NotesPage, InputNote, NoteModel, UserModel, InputNoteFields
+from notes_service.db.repository import NoteRepository, get_note_repo
+from notes_service.kafka_producer import KafkaProducer, get_kafka_producer
+from notes_service.schemas import InputNote, InputNoteFields, NoteModel, NotesPage, UserModel
 
 router = APIRouter()
 
 
-@router.get('/notes', status_code=status.HTTP_200_OK, response_model=NotesPage)
+@router.get('', status_code=status.HTTP_200_OK, response_model=NotesPage)
 async def get_namespace_notes(
     namespace_id: UUID,
     page: int = 1,
@@ -33,7 +34,7 @@ async def get_namespace_notes(
     return NotesPage(page=page, size=size, total_elements=result_count, items=notes)
 
 
-@router.get('/notes/{note_id}', status_code=status.HTTP_200_OK, response_model=NoteModel)
+@router.get('/{note_id}', status_code=status.HTTP_200_OK, response_model=NoteModel)
 async def get_note(
     note_id: UUID,
     repo: NoteRepository = Depends(get_note_repo),
@@ -42,20 +43,26 @@ async def get_note(
     return await repo.get_note(note_id)
 
 
-@router.post('/notes', status_code=status.HTTP_201_CREATED, response_model=NoteModel)
+@router.post('', status_code=status.HTTP_201_CREATED, response_model=NoteModel)
 async def create_note(
     note: InputNoteFields,
     repo: NoteRepository = Depends(get_note_repo),
+    kafka: KafkaProducer = Depends(get_kafka_producer),
     current_user: UserModel = Depends(get_current_user),
 ) -> NoteModel:
     new_note: InputNote = InputNote(**note.dict(), author_id=current_user.id)
-    return await repo.create_note(new_note)
+    note = await repo.create_note(new_note)
+    await kafka.pull(f'Created note {note.title}')
+    return note
 
 
-@router.delete('/notes/{note_id}', status_code=status.HTTP_204_NO_CONTENT, response_model=None)
+@router.delete('/{note_id}', status_code=status.HTTP_204_NO_CONTENT, response_model=None)
 async def delete_note(
     note_id: UUID,
     repo: NoteRepository = Depends(get_note_repo),
+    kafka: KafkaProducer = Depends(get_kafka_producer),
     current_user: UserModel = Depends(get_superuser),
 ) -> None:
+    note = await repo.get_note(note_id)
     await repo.delete_note(note_id)
+    await kafka.pull(f'Deleted note {note.title}')
