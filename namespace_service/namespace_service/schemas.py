@@ -18,11 +18,13 @@ class InputNamespace(BaseModel):
 
 
 class UpdateNamespace(InputNamespace):
-    name: str | None
+    name: str | None = None  # type: ignore
+    owner_id: UUID | None = None  # type: ignore
 
 
 class NamespaceModel(InputNamespace):
     id: UUID
+    owner_id: UUID
 
 
 class NamespaceModelWithUsers(NamespaceModel):
@@ -58,3 +60,8 @@ class UserNamespacesPage(BaseModel):
     size: int
     total_elements: int
     items: List[NamespaceModel]
+
+
+class StatisticMessage(BaseModel):
+    service: str
+    description: str
