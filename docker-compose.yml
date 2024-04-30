@@ -52,14 +52,13 @@ services:
       - zookeeper
 
   gateway_service:
-#    image: AndreevAAim/category_service:v1
+#    image: AndreevAA/gateway_service:v1
     build: gateway_service
     container_name: gateway_service
     restart: always
     ports:
       - "8080:8080"
     depends_on:
-      - postgres
       - notes_service
       - category_service
       - namespace_service
@@ -67,7 +66,7 @@ services:
       - identity_provider
 
   notes_service:
-#    image: AndreevAAim/category_service:v1
+#    image: AndreevAA/notes_service:v1
     build: notes_service
     container_name: notes_service
     restart: always
@@ -77,7 +76,7 @@ services:
       - postgres
 
   category_service:
-#    image: AndreevAAim/category_service:v1
+#    image: AndreevAA/category_service:v1
     build: category_service
     container_name: category_service
     restart: always
@@ -87,7 +86,7 @@ services:
       - postgres
 
   namespace_service:
-#    image: AndreevAAim/category_service:v1
+#    image: AndreevAA/namespace_service:v1
     build: namespace_service
     container_name: namespace_service
     restart: always
@@ -97,7 +96,7 @@ services:
       - postgres
 
   statistic_service:
-#    image: AndreevAA/category_service:v1
+#    image: AndreevAA/statistic_service:v1
     build: statistic_service
     container_name: statistic_service
     restart: always
@@ -115,6 +114,16 @@ services:
       - "8030:8030"
     depends_on:
       - postgres
+
+  frontend:
+#    image: AndreevAA/frontend:v1
+    build: frontend
+    container_name: frontend
+    restart: always
+    ports:
+      - "8081:8081"
+    depends_on:
+      - gateway_service
 
 volumes:
   db-data:
