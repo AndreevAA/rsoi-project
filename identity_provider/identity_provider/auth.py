@@ -11,6 +11,7 @@ from identity_provider.config import AUTH_CONFIG, CLIENTS, CODES, pwd_context
 from identity_provider.db.repository import UserRepository, get_user_repo
 from identity_provider.schemas import Token, TokenData, UserDB, UserModel
 
+
 router = APIRouter()
 
 oauth2_scheme = OAuth2AuthorizationCodeBearer(authorizationUrl='/token', tokenUrl='/access_token')
