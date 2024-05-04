@@ -20,10 +20,10 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build and push services
         run: |
-          docker build --no-cache -t andreevaa/gateway_service gateway_service && docker push gateway_service:latest
-          docker build --no-cache -t andreevaa/category_service category_service && docker push category_service:latest
-          docker build --no-cache -t andreevaa/identity_provider identity_provider && docker push identity_provider:latest
-          docker build --no-cache -t andreevaa/namespace_service namespace_service && docker push namespace_service:latest
-          docker build --no-cache -t andreevaa/notes_service notes_service && docker push notes_service:latest
-          docker build --no-cache -t andreevaa/statistic_service statistic_service && docker push statistic_service:latest
-          docker build --no-cache -t andreevaa/frontend frontend && docker push frontend:latest
+          docker build --no-cache -t andreevaa/gateway_service gateway_service && docker push andreevaa/gateway_service:latest
+          docker build --no-cache -t andreevaa/category_service category_service && docker push andreevaa/category_service:latest
+          docker build --no-cache -t andreevaa/identity_provider identity_provider && docker push andreevaa/identity_provider:latest
+          docker build --no-cache -t andreevaa/namespace_service namespace_service && docker push andreevaa/namespace_service:latest
+          docker build --no-cache -t andreevaa/notes_service notes_service && docker push andreevaa/notes_service:latest
+          docker build --no-cache -t andreevaa/statistic_service statistic_service && docker push andreevaa/statistic_service:latest
+          docker build --no-cache -t andreevaa/frontend frontend && docker push andreevaa/frontend:latest
