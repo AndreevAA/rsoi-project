@@ -20,10 +20,10 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build and push services
         run: |
-          docker build -t ${{ secrets.GATEWAY_SERVICE_IMAGE }} gateway_service && docker push ${{ secrets.GATEWAY_SERVICE_IMAGE }}
-          docker build -t ${{ secrets.CATEGORY_SERVICE_IMAGE }} category_service && docker push ${{ secrets.CATEGORY_SERVICE_IMAGE }}
-          docker build -t ${{ secrets.IDENTITY_PROVIDER_IMAGE }} identity_provider && docker push ${{ secrets.IDENTITY_PROVIDER_IMAGE }}
-          docker build -t ${{ secrets.NAMESPACE_SERVICE_IMAGE }} namespace_service && docker push ${{ secrets.NAMESPACE_SERVICE_IMAGE }}
-          docker build -t ${{ secrets.NOTES_SERVICE_IMAGE }} notes_service && docker push ${{ secrets.NOTES_SERVICE_IMAGE }}
-          docker build -t ${{ secrets.STATISTIC_SERVICE_IMAGE }} statistic_service && docker push ${{ secrets.STATISTIC_SERVICE_IMAGE }}
-          docker build -t ${{ secrets.FRONTEND_IMAGE }} frontend && docker push ${{ secrets.FRONTEND_IMAGE }}
+          docker build --no-cache -t gateway_service && docker push gateway_service:latest
+          docker build --no-cache -t category_service && docker push category_service:latest
+          docker build --no-cache -t identity_provider && docker push identity_provider:latest
+          docker build --no-cache -t namespace_service && docker push namespace_service:latest
+          docker build --no-cache -t notes_service && docker push notes_service:latest
+          docker build --no-cache -t statistic_service && docker push statistic_service:latest
+          docker build --no-cache -t frontend && docker push frontend:latest
