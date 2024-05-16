@@ -2,47 +2,47 @@ gateway-service:
   service:
     port: 8080
     image:
-      name: AndreevAA/gateway_service
-      version: v1
+      name: andreevaa/gateway_service
+      version: latest
 
 notes-service:
   service:
     port: 8070
     image:
-      name: AndreevAA/notes_service
-      version: v1
+      name: andreevaa/notes_service
+      version: latest
 
 category-service:
   service:
     port: 8060
     image:
-      name: AndreevAA/category_service
-      version: v1
+      name: andreevaa/category_service
+      version: latest
 
 namespace-service:
   service:
     port: 8050
     image:
-      name: AndreevAA/namespace_service
-      version: v1
+      name: andreevaa/namespace_service
+      version: latest
 
 statistic-service:
   service:
     port: 8040
     image:
-      name: AndreevAA/statistic_service
-      version: v1
+      name: andreevaa/statistic_service
+      version: latest
 
 identity-provider:
   service:
     port: 8030
     image:
-      name: AndreevAA/identity_provider
-      version: v1
+      name: andreevaa/identity_provider
+      version: latest
 
 frontend:
   service:
     port: 8081
     image:
-      name: AndreevAA/frontend
-      version: v1
+      name: andreevaa/frontend
+      version: latest
