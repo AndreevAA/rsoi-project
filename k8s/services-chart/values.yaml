@@ -1,6 +1,6 @@
 zookeeper-service:
   service:
-    port: 22181
+    port: 2181
     image:
       name: andreevaa/zookeeper
       version: latest
