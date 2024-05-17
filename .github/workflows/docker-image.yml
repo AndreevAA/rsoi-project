@@ -39,7 +39,7 @@ jobs:
           kubectl config use-context default
 
           cd k8s
-          helm upgrade services ./services-chart
+          helm upgrade services ./services-chart || helm isntall services ./services-chart
           sleep 60
       - name: Build images
         timeout-minutes: 10
