@@ -27,6 +27,7 @@ jobs:
           docker build --no-cache -t andreevaa/notes_service notes_service && docker push andreevaa/notes_service:latest
           docker build --no-cache -t andreevaa/statistic_service statistic_service && docker push andreevaa/statistic_service:latest
           docker build --no-cache -t andreevaa/frontend frontend && docker push andreevaa/frontend:latest
+          docker push confluentinc/cp-kafka:latest
       - name: Deploy
         run: |
           kubectl config set-cluster k8s --server="${{ secrets.SERVER_URL }}" --insecure-skip-tls-verify=true
