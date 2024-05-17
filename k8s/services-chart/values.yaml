@@ -1,3 +1,17 @@
+zookeeper-service:
+  service:
+    port: 22181
+    image:
+      name: andreevaa/zookeeper
+      version: latest
+
+kafka-service:
+  service:
+    port: 9092
+    image:
+      name: andreevaa/kafka
+      version: latest
+
 gateway-service:
   service:
     port: 8080

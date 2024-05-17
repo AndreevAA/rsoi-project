@@ -5,6 +5,12 @@ version: 1.0.0
 dependencies:
   - name: service-chart
     version: 1.0.0
+    alias: zookeeper-service
+  - name: service-chart
+    version: 1.0.0
+    alias: kafka-service
+  - name: service-chart
+    version: 1.0.0
     alias: gateway-service
   - name: service-chart
     version: 1.0.0
