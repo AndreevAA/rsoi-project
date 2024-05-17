@@ -52,7 +52,6 @@ services:
       - zookeeper
 
   gateway_service:
-#    image: AndreevAA/gateway_service:v1
     build: gateway_service
     container_name: gateway_service
     restart: always
@@ -66,7 +65,6 @@ services:
       - identity_provider
 
   notes_service:
-#    image: AndreevAA/notes_service:v1
     build: notes_service
     container_name: notes_service
     restart: always
@@ -76,7 +74,6 @@ services:
       - postgres
 
   category_service:
-#    image: AndreevAA/category_service:v1
     build: category_service
     container_name: category_service
     restart: always
@@ -86,7 +83,6 @@ services:
       - postgres
 
   namespace_service:
-#    image: AndreevAA/namespace_service:v1
     build: namespace_service
     container_name: namespace_service
     restart: always
@@ -96,7 +92,6 @@ services:
       - postgres
 
   statistic_service:
-#    image: AndreevAA/statistic_service:v1
     build: statistic_service
     container_name: statistic_service
     restart: always
@@ -106,7 +101,6 @@ services:
       - postgres
 
   identity_provider:
-#    image: AndreevAA/identity_provider:v1
     build: identity_provider
     container_name: identity_provider
     restart: always
@@ -116,7 +110,6 @@ services:
       - postgres
 
   frontend:
-#    image: AndreevAA/frontend:v1
     build: frontend
     container_name: frontend
     restart: always
