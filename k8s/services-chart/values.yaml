@@ -21,7 +21,7 @@ gateway-service:
 
 notes-service:
   service:
-    port: 8070
+    port: 8082
     image:
       name: andreevaa/notes_service
       version: latest

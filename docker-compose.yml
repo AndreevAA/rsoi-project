@@ -71,7 +71,7 @@ services:
     container_name: notes_service
     restart: always
     ports:
-      - "8070:8070"
+      - "8082:8082"
     depends_on:
       - postgres
 
