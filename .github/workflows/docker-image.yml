@@ -20,10 +20,6 @@ jobs:
           password: ${{ secrets.DOCKER_PASSWORD }}
       - name: Build and push services
         run: |
-          docker build --no-cache -t andreevaa/postgres postgres && docker push andreevaa/postgres:latest
-          docker build --no-cache -t andreevaa/pgadmin pgadmin && docker push andreevaa/pgadmin:latest
-          docker build --no-cache -t andreevaa/zookeeper zookeeper && docker push andreevaa/zookeeper:latest
-          docker build --no-cache -t andreevaa/kafka kafka && docker push andreevaa/kafka:latest
           docker build --no-cache -t andreevaa/gateway_service gateway_service && docker push andreevaa/gateway_service:latest
           docker build --no-cache -t andreevaa/category_service category_service && docker push andreevaa/category_service:latest
           docker build --no-cache -t andreevaa/identity_provider identity_provider && docker push andreevaa/identity_provider:latest
@@ -39,7 +35,7 @@ jobs:
           kubectl config use-context default
 
           cd k8s
-          helm upgrade services ./services-chart || helm isntall services ./services-chart
+          helm upgrade services ./services-chart || helm install services ./services-chart
           sleep 60
       - name: Build images
         timeout-minutes: 10
