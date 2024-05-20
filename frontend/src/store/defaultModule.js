@@ -15,7 +15,7 @@ const actions = {
         data.append('password', auth.password);
         let config = {
             method: 'post',
-            url: 'http://localhost:8080/login',
+            url: '/login',
             headers: {},
             data: data
         };
@@ -39,7 +39,7 @@ const actions = {
 
         let config = {
             method: 'post',
-            url: 'http://localhost:8080/users/',
+            url: '/users/',
             headers: {},
             data: {
                 first_name: registration.firstName,

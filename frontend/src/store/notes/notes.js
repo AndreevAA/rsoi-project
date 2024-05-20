@@ -13,7 +13,7 @@ const actions = {
     get_notes: (({commit}, namespaceId) => {
         let config = {
             method: 'get',
-            url: 'http://localhost:8080/notes/?namespace_id=' + namespaceId.namespaceId,
+            url: '/notes/?namespace_id=' + namespaceId.namespaceId,
             headers: {
                 'Authorization': 'Bearer ' + defaultModule.state.token
             }
@@ -31,7 +31,7 @@ const actions = {
     get_note: (({commit}, noteId) => {
         let config = {
             method: 'get',
-            url: 'http://localhost:8080/notes/' + noteId.noteId,
+            url: '/notes/' + noteId.noteId,
             headers: {
                 'Authorization': 'Bearer ' + defaultModule.state.token
             }
@@ -62,7 +62,7 @@ const mutations = {
     create_note: (state, note) => {
         let config = {
             method: 'post',
-            url: 'http://localhost:8080/notes',
+            url: '/notes',
             headers: {
                 'Authorization': 'Bearer ' + defaultModule.state.token
             },
@@ -85,7 +85,7 @@ const mutations = {
     delete_note: (state, noteId) => {
         let config = {
             method: 'delete',
-            url: 'http://localhost:8080/notes/' + noteId.noteId,
+            url: '/notes/' + noteId.noteId,
             headers: {
                 'Authorization': 'Bearer ' + defaultModule.state.token
             }

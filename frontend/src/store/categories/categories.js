@@ -12,7 +12,7 @@ const actions = {
     get_categories: (({commit}, namespaceId) => {
         let config = {
             method: 'get',
-            url: 'http://localhost:8080/categories/?namespace_id=' + namespaceId.namespaceId,
+            url: '/categories/?namespace_id=' + namespaceId.namespaceId,
             headers: {
                 'Authorization': 'Bearer ' + defaultModule.state.token
             }
@@ -35,7 +35,7 @@ const mutations = {
     post_category: (state, data) => {
         let config = {
             method: 'post',
-            url: 'http://localhost:8080/categories/',
+            url: '/categories/',
             headers: {
                 'Authorization': 'Bearer ' + defaultModule.state.token
             },
@@ -57,7 +57,7 @@ const mutations = {
     delete_category: (state, categoryId) => {
         let config = {
             method: 'delete',
-            url: 'http://localhost:8080/categories/' + categoryId.categoryId,
+            url: '/categories/' + categoryId.categoryId,
             headers: {
                 'Authorization': 'Bearer ' + defaultModule.state.token
             }
