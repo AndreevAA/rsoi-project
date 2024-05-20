@@ -50,7 +50,7 @@ const actions = {
     get_users_me: (({commit}) => {
         let config = {
             method: 'get',
-            url: '/users/me/',
+            url: '/api/users/me/',
             headers: {
                 'Authorization': 'Bearer ' + defaultModule.state.token
             },
@@ -61,7 +61,7 @@ const actions = {
                 if (response.data.is_superuser){
                     let config = {
                         method: 'get',
-                        url: '/statistics',
+                        url: '/api/statistics',
                         headers: {
                             'Authorization': 'Bearer ' + defaultModule.state.token
                         },

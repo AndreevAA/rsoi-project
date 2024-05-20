@@ -15,7 +15,7 @@ const actions = {
         data.append('password', auth.password);
         let config = {
             method: 'post',
-            url: '/login',
+            url: '/api/login',
             headers: {},
             data: data
         };
@@ -39,7 +39,7 @@ const actions = {
 
         let config = {
             method: 'post',
-            url: '/users/',
+            url: '/api/users/',
             headers: {},
             data: {
                 first_name: registration.firstName,
@@ -63,7 +63,7 @@ const actions = {
 const mutations = {
     set_token: (state, token) => {
         state.token = token
-        router.push('/profile')
+        router.push('/api/profile')
     },
     set_error: (state, error) => {
         state.error = error
