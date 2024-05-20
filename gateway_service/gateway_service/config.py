@@ -3,7 +3,7 @@ from pydantic import BaseSettings, Field
 
 class NotesConfig(BaseSettings):
     host: str = Field(env='NOTES_SERVICE_HOST', default='notes_service')
-    port: int = Field(env='NOTES_SERVICE_PORT', default=8070)
+    port: int = 8070 #Field(env='NOTES_SERVICE_PORT', default=8070)
 
     class Config:
         validate_assignment = True
