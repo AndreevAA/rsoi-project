@@ -78,7 +78,7 @@ async def access_denied_error_handler(request: Request, exc: AccessDenied) -> JS
     )
 
 
-@app.get('/manage/health', status_code=status.HTTP_200_OK)
+@app.get('api/gateway-service/manage/health', status_code=status.HTTP_200_OK)
 async def check_health() -> Dict:
     return {'Service': 'Gateway'}
 
