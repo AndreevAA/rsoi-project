@@ -31,7 +31,7 @@ app.add_middleware(
 )
 
 
-@app.post('/login')
+@app.post('/api/login')
 async def login_user(form_data: Annotated[OAuth2PasswordRequestForm, Depends()]) -> RedirectResponse:
     return RedirectResponse(
         url=f'http://localhost:8030/token?client_id=gateway',
