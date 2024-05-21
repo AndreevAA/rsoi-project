@@ -1,4 +1,4 @@
-domain: AndreevAA.com
+domain: "158.160.160.101"
 service:
   port: 8081
   profile: k8s
