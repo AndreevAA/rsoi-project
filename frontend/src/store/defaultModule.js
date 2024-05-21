@@ -15,7 +15,7 @@ const actions = {
         data.append('password', auth.password);
         let config = {
             method: 'post',
-            url: '/api/gateway-service/login',
+            url: 'http://158.160.164.167/api/gateway-service/login',
             headers: {},
             data: data
         };
@@ -63,7 +63,7 @@ const actions = {
 const mutations = {
     set_token: (state, token) => {
         state.token = token
-        router.push('/api/gateway-service/profile')
+        router.push('http://158.160.164.167/api/gateway-service/profile')
     },
     set_error: (state, error) => {
         state.error = error
