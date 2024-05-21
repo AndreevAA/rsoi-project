@@ -10,56 +10,56 @@ spec:
   rules:
     - http:
         paths:
-          - path: {{ "/api/category-service(.*)" }}
+          - path: "/api/category-service/" 
             pathType: Prefix
             backend:
               service:
                 name: gateway-service
                 port:
                   number: 8080
-          - path: {{ "/api/category-service(.*)" }}
+          - path: "/api/category-service/" 
             pathType: Prefix
             backend:
               service:
                 name: category-service
                 port:
                   number: 8060
-          - path: {{ "/api/identity-provider(.*)" }}
+          - path: "/api/identity-provider/" 
             pathType: Prefix
             backend:
               service:
                 name: identity-provider
                 port:
                   number: 8030
-          - path: {{ "/api/kafka-service (.*)" }}
+          - path: "/api/kafka-service/" 
             pathType: Prefix
             backend:
               service:
                 name: kafka-service 
                 port:
                   number: 9092
-          - path: {{ "/api/namespace-service(.*)" }}
+          - path: "/api/namespace-service/" 
             pathType: Prefix
             backend:
               service:
                 name: namespace-service
                 port:
                   number: 8050
-          - path: {{ "/api/notes-service(.*)" }}
+          - path: "/api/notes-service/" 
             pathType: Prefix
             backend:
               service:
                 name: notes-service
                 port:
                   number: 8070
-          - path: {{ "/api/statistic-service(.*)" }}
+          - path: "/api/statistic-service/" 
             pathType: Prefix
             backend:
               service:
                 name: statistic-service
                 port:
                   number: 8040
-          - path: {{ "/api/zookeeper-service(.*)" }}
+          - path: "/api/zookeeper-service/" 
             pathType: Prefix
             backend:
               service:
