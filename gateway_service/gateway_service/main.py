@@ -31,7 +31,7 @@ app.add_middleware(
 )
 
 
-@app.post('/api/gateway-service/api/login')
+@app.post('/api/gateway-service/login')
 async def login_user(form_data: Annotated[OAuth2PasswordRequestForm, Depends()]) -> RedirectResponse:
     return RedirectResponse(
         url=f'http://localhost:8030/token?client_id=gateway',
@@ -39,7 +39,7 @@ async def login_user(form_data: Annotated[OAuth2PasswordRequestForm, Depends()])
     )
 
 
-@app.get('/api/gateway-service/api/code')
+@app.get('/api/gateway-service/code')
 async def code_handler(code: str) -> Dict:
     async with AsyncClient(base_url='http://identity_provider:8030') as ac:
         response = await ac.post('/access_token', params={'code': code})
