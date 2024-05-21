@@ -3,9 +3,8 @@ kind: Ingress
 metadata:
   name: services-ingress
   labels:
-    nginx.ingress.kubernetes.io/use-regex: "true"
     app.kubernetes.io/name: services-ingress
-    app.kubernetes.io/version: "{{ .Values.service.image.version }}"
+    app.kubernetes.io/version: "latest"
     app.kubernetes.io/component: application
     app.kubernetes.io/part-of: micro-services
     app.kubernetes.io/managed-by: helm
