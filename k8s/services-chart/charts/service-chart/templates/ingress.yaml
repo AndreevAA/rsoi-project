@@ -1,18 +1,19 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: controller
-  namespace: default
-  annotations:
-    nginx.ingress.kubernetes.io/use-regex: "true"
-    nginx.ingress.kubernetes.io/rewrite-target: /$1
-    meta.helm.sh/release-name: services
-    meta.helm.sh/release-namespace: default
+  name: {{ .Chart.Name }}-ingress
+  labels:
+    app.kubernetes.io/name: {{ .Chart.Name }}-ingress
+    app.kubernetes.io/version: "{{ .Values.service.image.version }}"
+    app.kubernetes.io/component: application
+    app.kubernetes.io/part-of: micro-services
+    app.kubernetes.io/managed-by: helm
 spec:
   ingressClassName: nginx
   rules:
     - http:
         paths:
+          paths:
           - path: "/api/gateway-service/" 
             pathType: Prefix
             backend:
@@ -69,4 +70,13 @@ spec:
                 name: zookeeper-service
                 port:
                   number: 2181
+          
+
+
+
+
+
+
+
+
           
