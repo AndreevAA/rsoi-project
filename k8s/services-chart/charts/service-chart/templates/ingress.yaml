@@ -10,70 +10,62 @@ spec:
   rules:
     - http:
         paths:
-          {{- range  $key, $val := .Values.services}}
-          {{- if (hasKey $val "publishUrl") }}
-          - path: {{ "/api/(.*)" }}
+          - path: {{ "/api/category-service(.*)" }}
             pathType: Prefix
             backend:
               service:
                 name: gateway-service
                 port:
                   number: 8080
-          - path: {{ "/api/(.*)" }}
+          - path: {{ "/api/category-service(.*)" }}
             pathType: Prefix
             backend:
               service:
                 name: category-service
                 port:
                   number: 8060
-          - path: {{ "/api/(.*)" }}
+          - path: {{ "/api/identity-provider(.*)" }}
             pathType: Prefix
             backend:
               service:
                 name: identity-provider
                 port:
                   number: 8030
-          - path: {{ "/api/(.*)" }}
+          - path: {{ "/api/kafka-service (.*)" }}
             pathType: Prefix
             backend:
               service:
                 name: kafka-service 
                 port:
                   number: 9092
-          - path: {{ "/api/(.*)" }}
+          - path: {{ "/api/namespace-service(.*)" }}
             pathType: Prefix
             backend:
               service:
                 name: namespace-service
                 port:
                   number: 8050
-          - path: {{ "/api/(.*)" }}
+          - path: {{ "/api/notes-service(.*)" }}
             pathType: Prefix
             backend:
               service:
                 name: notes-service
                 port:
                   number: 8070
-          - path: {{ "/api/(.*)" }}
+          - path: {{ "/api/statistic-service(.*)" }}
             pathType: Prefix
             backend:
               service:
                 name: statistic-service
                 port:
                   number: 8040
-          - path: {{ "/api/(.*)" }}
+          - path: {{ "/api/zookeeper-service(.*)" }}
             pathType: Prefix
             backend:
               service:
                 name: zookeeper-service
                 port:
                   number: 2181
-          - path: {{ "/api/(.*)" }}
-            pathType: Prefix
-            backend:
-              service:
-                name: frontend
-                port:
-                  number: 8081
+          
           {{- end}}
           {{- end }}
