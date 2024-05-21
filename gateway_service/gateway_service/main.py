@@ -31,19 +31,19 @@ app.add_middleware(
 )
 
 
-# @app.post('/api/gateway-service/api/login')
-# async def login_user(form_data: Annotated[OAuth2PasswordRequestForm, Depends()]) -> RedirectResponse:
-#     return RedirectResponse(
-#         url=f'http://localhost:8030/token?client_id=gateway',
-#         status_code=status.HTTP_307_TEMPORARY_REDIRECT,
-#     )
+@app.post('/api/gateway-service/api/login')
+async def login_user(form_data: Annotated[OAuth2PasswordRequestForm, Depends()]) -> RedirectResponse:
+    return RedirectResponse(
+        url=f'http://localhost:8030/token?client_id=gateway',
+        status_code=status.HTTP_307_TEMPORARY_REDIRECT,
+    )
 
 
-# @app.get('/code')
-# async def code_handler(code: str) -> Dict:
-#     async with AsyncClient(base_url='http://identity_provider:8030') as ac:
-#         response = await ac.post('/access_token', params={'code': code})
-#     return response.json()
+@app.get('/api/gateway-service/api/code')
+async def code_handler(code: str) -> Dict:
+    async with AsyncClient(base_url='http://identity_provider:8030') as ac:
+        response = await ac.post('/access_token', params={'code': code})
+    return response.json()
 
 
 # @app.exception_handler(ServiceNotAvailableError)
@@ -62,20 +62,20 @@ app.add_middleware(
 #     )
 
 
-# @app.exception_handler(UnauthorizedError)
-# async def unauthorized_error_handler(request: Request, exc: UnauthorizedError) -> JSONResponse:
-#     return JSONResponse(
-#         status_code=status.HTTP_401_UNAUTHORIZED,
-#         content=exc.details,
-#     )
+@app.exception_handler(UnauthorizedError)
+async def unauthorized_error_handler(request: Request, exc: UnauthorizedError) -> JSONResponse:
+    return JSONResponse(
+        status_code=status.HTTP_401_UNAUTHORIZED,
+        content=exc.details,
+    )
 
 
-# @app.exception_handler(AccessDenied)
-# async def access_denied_error_handler(request: Request, exc: AccessDenied) -> JSONResponse:
-#     return JSONResponse(
-#         status_code=status.HTTP_403_FORBIDDEN,
-#         content={'message': 'Access denied'},
-#     )
+@app.exception_handler(AccessDenied)
+async def access_denied_error_handler(request: Request, exc: AccessDenied) -> JSONResponse:
+    return JSONResponse(
+        status_code=status.HTTP_403_FORBIDDEN,
+        content={'message': 'Access denied'},
+    )
 
 
 @app.get('/api/gateway-service/manage/health', status_code=status.HTTP_200_OK)
