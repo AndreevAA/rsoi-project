@@ -67,5 +67,3 @@ spec:
                 port:
                   number: 2181
           
-          {{- end}}
-          {{- end }}
