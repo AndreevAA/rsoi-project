@@ -1,4 +1,4 @@
-domain: "158.160.160.101"
+domain: "158.160.164.167"
 service:
   port: 8081
   profile: k8s
