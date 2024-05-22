@@ -14,7 +14,7 @@ from identity_provider.schemas import Token, TokenData, UserDB, UserModel
 
 router = APIRouter()
 
-oauth2_scheme = OAuth2AuthorizationCodeBearer(authorizationUrl='/token', tokenUrl='/access_token')
+oauth2_scheme = OAuth2AuthorizationCodeBearer(authorizationUrl='/api/identity-provider/token', tokenUrl='/api/identity-provider/access_token')
 
 
 async def auth_header(request: Request) -> str:
@@ -77,7 +77,7 @@ def create_access_token(data: dict, expires_delta: timedelta) -> str:
     return encoded_jwt
 
 
-@router.post("/token")
+@router.post("/api/identity-provider/token")
 async def login_for_code(
     form_data: Annotated[OAuth2PasswordRequestForm, Depends()],
     client_id: str,
@@ -107,7 +107,7 @@ async def login_for_code(
     return RedirectResponse(url=url, status_code=status.HTTP_302_FOUND)
 
 
-@router.post("/access_token", response_model=Token)
+@router.post("/api/identity-provider/access_token", response_model=Token)
 async def login_for_access_token(code: UUID) -> Token:
     if code in CODES:
         user = CODES[code]
