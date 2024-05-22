@@ -39,7 +39,7 @@ const actions = {
 
         let config = {
             method: 'post',
-            url: 'http://158.160.164.167/api/gateway-service/users/',
+            url: 'http://158.160.164.167/api/identity-provider/users/',
             headers: {},
             data: {
                 first_name: registration.firstName,
