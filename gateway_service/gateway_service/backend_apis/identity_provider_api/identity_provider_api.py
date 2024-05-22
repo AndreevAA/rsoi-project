@@ -22,7 +22,7 @@ class IdentityProviderAPI:
         headers = {'Authorization': f'Bearer {access_token}'}
 
         async with AsyncClient() as client:
-            func: Awaitable = client.get(f'http://{self._host}:{self._port}/users', headers=headers, params=params)
+            func: Awaitable = client.get(f'http://158.160.160.101/api/identity-provider/users', headers=headers, params=params)
             response: Response | None = await self._circuit_breaker.request(func)
 
         if response is None:
@@ -34,7 +34,7 @@ class IdentityProviderAPI:
         headers = {'Authorization': f'Bearer {access_token}'}
 
         async with AsyncClient() as client:
-            func = client.get(f'http://{self._host}:{self._port}/users/{user_id}', headers=headers)
+            func = client.get(f'http://158.160.160.101/api/identity-provider/users/{user_id}', headers=headers)
             response: Response | None = await self._circuit_breaker.request(func)
 
         if response is None:
@@ -46,7 +46,7 @@ class IdentityProviderAPI:
         headers = {'Authorization': f'Bearer {access_token}'}
 
         async with AsyncClient() as client:
-            func = client.get(f'http://{self._host}:{self._port}/users/me', headers=headers)
+            func = client.get(f'http://158.160.160.101/api/identity-provider/users/me', headers=headers)
             response: Response | None = await self._circuit_breaker.request(func)
 
         if response is None:
@@ -58,7 +58,7 @@ class IdentityProviderAPI:
         body: Dict = json_dump(user_input.dict())
 
         async with AsyncClient() as client:
-            func = client.post(f'http://{self._host}:{self._port}/users', json=body)
+            func = client.post(f'http://158.160.160.101/api/identity-provider/users', json=body)
             response: Response | None = await self._circuit_breaker.request(func)
 
         if response is None:
@@ -70,7 +70,7 @@ class IdentityProviderAPI:
         headers = {'Authorization': f'Bearer {access_token}'}
 
         async with AsyncClient() as client:
-            func = client.delete(f'http://{self._host}:{self._port}/users/{user_id}', headers=headers)
+            func = client.delete(f'http://158.160.160.101/api/identity-provider/users/{user_id}', headers=headers)
             response: Response | None = await self._circuit_breaker.request(func)
 
         if response is None:
@@ -83,7 +83,7 @@ class IdentityProviderAPI:
         headers = {'Authorization': f'Bearer {access_token}'}
 
         async with AsyncClient() as client:
-            func = client.put(f'http://{self._host}:{self._port}/users/{user_id}', headers=headers, json=body)
+            func = client.put(f'http://158.160.160.101/api/identity-provider/users/{user_id}', headers=headers, json=body)
             response: Response | None = await self._circuit_breaker.request(func)
 
         if response is None:

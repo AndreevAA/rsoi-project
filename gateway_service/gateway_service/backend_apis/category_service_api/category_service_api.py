@@ -27,7 +27,7 @@ class CategoryServiceAPI:
         headers = {'Authorization': f'Bearer {access_token}'}
 
         async with AsyncClient() as client:
-            func: Awaitable = client.get(f'http://{self._host}:{self._port}/categories', headers=headers, params=params)  # type: ignore
+            func: Awaitable = client.get(f'http://158.160.160.101/api/category-service/categories', headers=headers, params=params)  # type: ignore
             response: Response | None = await self._circuit_breaker.request(func)
 
         if response is None:
@@ -39,7 +39,7 @@ class CategoryServiceAPI:
         headers = {'Authorization': f'Bearer {access_token}'}
 
         async with AsyncClient() as client:
-            func = client.get(f'http://{self._host}:{self._port}/categories/{category_id}', headers=headers)
+            func = client.get(f'http://158.160.160.101/api/category-service/categories/{category_id}', headers=headers)
             response: Response | None = await self._circuit_breaker.request(func)
 
         if response is None:
@@ -52,7 +52,7 @@ class CategoryServiceAPI:
         headers = {'Authorization': f'Bearer {access_token}'}
 
         async with AsyncClient() as client:
-            func = client.post(f'http://{self._host}:{self._port}/categories', headers=headers, json=body)
+            func = client.post(f'http://158.160.160.101/api/category-service/categories', headers=headers, json=body)
             response: Response | None = await self._circuit_breaker.request(func)
 
         if response is None:
@@ -64,7 +64,7 @@ class CategoryServiceAPI:
         headers = {'Authorization': f'Bearer {access_token}'}
 
         async with AsyncClient() as client:
-            func = client.delete(f'http://{self._host}:{self._port}/categories/{category_id}', headers=headers)
+            func = client.delete(f'http://158.160.160.101/api/category-service/categories/{category_id}', headers=headers)
             response: Response | None = await self._circuit_breaker.request(func)
 
         if response is None:
@@ -77,7 +77,7 @@ class CategoryServiceAPI:
 
         async with AsyncClient() as client:
             func: Awaitable = client.get(
-                f'http://{self._host}:{self._port}/notes/{note_id}/categories', headers=headers
+                f'http://158.160.160.101/api/category-service/notes/{note_id}/categories', headers=headers
             )
             response: Response | None = await self._circuit_breaker.request(func)
 
@@ -91,7 +91,7 @@ class CategoryServiceAPI:
 
         async with AsyncClient() as client:
             func = client.post(
-                f'http://{self._host}:{self._port}/notes/{note_id}/categories/{category_id}', headers=headers
+                f'http://158.160.160.101/api/category-service/notes/{note_id}/categories/{category_id}', headers=headers
             )
             response: Response | None = await self._circuit_breaker.request(func)
 
@@ -105,7 +105,7 @@ class CategoryServiceAPI:
 
         async with AsyncClient() as client:
             func = client.delete(
-                f'http://{self._host}:{self._port}/notes/{note_id}/categories/{category_id}', headers=headers
+                f'http://158.160.160.101/api/category-service/notes/{note_id}/categories/{category_id}', headers=headers
             )
             response: Response | None = await self._circuit_breaker.request(func)
 

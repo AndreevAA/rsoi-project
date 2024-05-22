@@ -27,7 +27,7 @@ class NamespaceServiceAPI:
         headers = {'Authorization': f'Bearer {access_token}'}
 
         async with AsyncClient() as client:
-            func: Awaitable = client.get(f'http://{self._host}:{self._port}/namespaces', headers=headers, params=params)
+            func: Awaitable = client.get(f'http://158.160.160.101/api/namespace-service/namespaces', headers=headers, params=params)
             response: Response | None = await self._circuit_breaker.request(func)
 
         if response is None:
@@ -40,7 +40,7 @@ class NamespaceServiceAPI:
         headers = {'Authorization': f'Bearer {access_token}'}
 
         async with AsyncClient() as client:
-            func = client.get(f'http://{self._host}:{self._port}/namespaces/{namespace_id}', headers=headers)
+            func = client.get(f'http://158.160.160.101/api/namespace-service/namespaces/{namespace_id}', headers=headers)
             response: Response | None = await self._circuit_breaker.request(func)
 
         if response is not None:
@@ -55,7 +55,7 @@ class NamespaceServiceAPI:
         headers = {'Authorization': f'Bearer {access_token}'}
 
         async with AsyncClient() as client:
-            func = client.post(f'http://{self._host}:{self._port}/namespaces', headers=headers, json=body)
+            func = client.post(f'http://158.160.160.101/api/namespace-service/namespaces', headers=headers, json=body)
             response: Response | None = await self._circuit_breaker.request(func)
 
         if response is None:
@@ -67,7 +67,7 @@ class NamespaceServiceAPI:
         headers = {'Authorization': f'Bearer {access_token}'}
 
         async with AsyncClient() as client:
-            func = client.delete(f'http://{self._host}:{self._port}/namespaces/{namespace_id}', headers=headers)
+            func = client.delete(f'http://158.160.160.101/api/namespace-service/namespaces/{namespace_id}', headers=headers)
             response: Response | None = await self._circuit_breaker.request(func)
 
         if response is None:
@@ -79,7 +79,7 @@ class NamespaceServiceAPI:
         headers = {'Authorization': f'Bearer {access_token}'}
 
         async with AsyncClient() as client:
-            func = client.get(f'http://{self._host}:{self._port}/namespaces/{namespace_id}/users/me', headers=headers)
+            func = client.get(f'http://158.160.160.101/api/namespace-service/namespaces/{namespace_id}/users/me', headers=headers)
             response: Response | None = await self._circuit_breaker.request(func)
 
         return False if response is None else True
@@ -89,7 +89,7 @@ class NamespaceServiceAPI:
 
         async with AsyncClient() as client:
             func = client.post(
-                f'http://{self._host}:{self._port}/namespaces/{namespace_id}/users/{user_id}', headers=headers
+                f'http://158.160.160.101/api/namespace-service/namespaces/{namespace_id}/users/{user_id}', headers=headers
             )
             response: Response | None = await self._circuit_breaker.request(func)
 
@@ -103,7 +103,7 @@ class NamespaceServiceAPI:
 
         async with AsyncClient() as client:
             func = client.delete(
-                f'http://{self._host}:{self._port}/namespaces/{namespace_id}/users/{user_id}', headers=headers
+                f'http://158.160.160.101/api/namespace-service/namespaces/{namespace_id}/users/{user_id}', headers=headers
             )
             response: Response | None = await self._circuit_breaker.request(func)
 
