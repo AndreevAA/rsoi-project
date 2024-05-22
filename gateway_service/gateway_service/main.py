@@ -19,7 +19,7 @@ app.include_router(categories_router, prefix='/categories', tags=['Categories'])
 app.include_router(users_router, prefix='/users', tags=['Users'])
 app.include_router(namespace_router, prefix='/namespaces', tags=['Namespaces'])
 app.include_router(notes_router, prefix='/notes', tags=['Notes'])
-app.include_router(statistics_router, prefix='/statistics', tags=['Statistics'])
+app.include_router(statistics_router, prefix='/gateway-service/statistics', tags=['Statistics'])
 
 
 app.add_middleware(
