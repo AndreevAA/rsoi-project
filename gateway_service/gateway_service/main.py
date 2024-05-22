@@ -15,10 +15,10 @@ from gateway_service.api.statistics_api import router as statistics_router
 from gateway_service.exceptions import NotFoundError, ServiceNotAvailableError, UnauthorizedError, AccessDenied
 
 app = FastAPI()
-app.include_router(categories_router, prefix='/categories', tags=['Categories'])
-app.include_router(users_router, prefix='/users', tags=['Users'])
-app.include_router(namespace_router, prefix='/namespaces', tags=['Namespaces'])
-app.include_router(notes_router, prefix='/notes', tags=['Notes'])
+app.include_router(categories_router, prefix='/api/gateway-service/categories', tags=['Categories'])
+app.include_router(users_router, prefix='/api/gateway-service/users', tags=['Users'])
+app.include_router(namespace_router, prefix='/api/gateway-service/namespaces', tags=['Namespaces'])
+app.include_router(notes_router, prefix='/api/gateway-service/notes', tags=['Notes'])
 app.include_router(statistics_router, prefix='/api/gateway-service/statistics', tags=['Statistics'])
 
 
