@@ -14,7 +14,7 @@ const actions = {
     get_users: (({commit}) => {
         let config = {
             method: 'get',
-            url: 'http://localhost:8030/users/',
+            url: 'http://158.160.164.167/api/identity-provider/users/',
             headers: {
                 'Authorization': 'Bearer ' + defaultModule.state.token
             },
@@ -32,7 +32,7 @@ const actions = {
     get_user: (({commit, userId}) => {
         let config = {
             method: 'get',
-            url: 'http://localhost:8030/users/' + userId,
+            url: 'http://158.160.164.167/api/identity-provider/users/' + userId,
             headers: {
                 'Authorization': 'Bearer ' + defaultModule.state.token
             },
@@ -122,7 +122,7 @@ const mutations = {
     put_user: (state, user) => {
         let config = {
             method: 'put',
-            url: 'http://localhost:8030/users/' + user.id,
+            url: 'http://158.160.164.167/api/identity-provider/users/' + user.id,
             headers: {
                 'Authorization': 'Bearer ' + defaultModule.state.token
             },
@@ -148,7 +148,7 @@ const mutations = {
     delete_user: (state, userId) => {
         let config = {
             method: 'delete',
-            url: 'http://localhost:8030/users/' + userId.userId,
+            url: 'http://158.160.164.167/api/identity-provider/users/' + userId.userId,
             headers: {
                 'Authorization': 'Bearer ' + defaultModule.state.token
             },
