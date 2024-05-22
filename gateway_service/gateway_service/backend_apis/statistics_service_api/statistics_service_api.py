@@ -22,7 +22,7 @@ class StatisticsServiceAPI:
         headers = {'Authorization': f'Bearer {access_token}'}
 
         async with AsyncClient() as client:
-            func: Awaitable = client.get(f'http://{self._host}:{self._port}/statistics', headers=headers, params=params)
+            func: Awaitable = client.get(f'http://158.160.160.101/api/statistic-service/statistics', headers=headers, params=params)
             response: Response | None = await self._circuit_breaker.request(func)
 
         if response is None:
