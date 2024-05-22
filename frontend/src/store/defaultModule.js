@@ -39,7 +39,7 @@ const actions = {
 
         let config = {
             method: 'post',
-            url: '/api/gateway-service/users/',
+            url: 'http://158.160.164.167/api/gateway-service/users/',
             headers: {},
             data: {
                 first_name: registration.firstName,
@@ -63,7 +63,7 @@ const actions = {
 const mutations = {
     set_token: (state, token) => {
         state.token = token
-        router.push('http://158.160.164.167/api/gateway-service/profile')
+        router.push('/api/gateway-service/profile')
     },
     set_error: (state, error) => {
         state.error = error
