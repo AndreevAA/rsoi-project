@@ -8,6 +8,12 @@ metadata:
     app.kubernetes.io/component: application
     app.kubernetes.io/part-of: micro-services
     app.kubernetes.io/managed-by: helm
+  annotations:
+    # Настройки CORS
+    nginx.ingress.kubernetes.io/cors-allow-origin: "http://158.160.160.101"
+    nginx.ingress.kubernetes.io/cors-allow-credentials: "true"
+    nginx.ingress.kubernetes.io/cors-allow-headers: "Origin, Content-Type, Accept, Authorization, X-Requested-With"
+    nginx.ingress.kubernetes.io/cors-allow-methods: "GET, POST, OPTIONS, PUT, DELETE"
 spec:
   ingressClassName: nginx
   rules:
