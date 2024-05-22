@@ -10,7 +10,7 @@ from statistic_service.exceptions import NotFoundStatistic
 from statistic_service.routers import router
 
 app = FastAPI()
-app.include_router(router, prefix='/statistics', tags=['Statistics API'])
+app.include_router(router, prefix='/api/statistic-service/statistics', tags=['Statistics API'])
 
 
 @app.get('http://158.160.164.167/api/statistic-service/manage/health', status_code=status.HTTP_200_OK)

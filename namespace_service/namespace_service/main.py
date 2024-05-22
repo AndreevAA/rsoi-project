@@ -10,10 +10,10 @@ from namespace_service.exceptions import NotFoundNamespace
 from namespace_service.routers import router
 
 app = FastAPI()
-app.include_router(router, prefix='/namespaces', tags=['Namespace API'])
+app.include_router(router, prefix='/api/namespace-service/namespaces', tags=['Namespace API'])
 
 
-@app.get('/manage/health', status_code=status.HTTP_200_OK)
+@app.get('http://158.160.164.167/api/namespace-service/manage/health', status_code=status.HTTP_200_OK)
 async def check_health() -> Dict:
     return {'Service': 'Namespace'}
 

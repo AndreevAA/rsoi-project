@@ -10,10 +10,10 @@ from notes_service.exceptions import NotFoundNote
 from notes_service.routers import router
 
 app = FastAPI()
-app.include_router(router, prefix='/notes', tags=['Notes API'])
+app.include_router(router, prefix='/api/notes-service/notes', tags=['Notes API'])
 
 
-@app.get('/manage/health', status_code=status.HTTP_200_OK)
+@app.get('http://158.160.164.167/api/notes-service/manage/health', status_code=status.HTTP_200_OK)
 async def check_health() -> Dict:
     return {'Service': 'Notes'}
 
