@@ -13,7 +13,7 @@ app = FastAPI()
 app.include_router(router, prefix='/api/statistic-service/statistics', tags=['Statistics API'])
 
 
-@app.get('http://158.160.164.167/api/statistic-service/manage/health', status_code=status.HTTP_200_OK)
+@app.get('/api/statistic-service/manage/health', status_code=status.HTTP_200_OK)
 async def check_health() -> Dict:
     return {'Service': 'Statistic'}
 

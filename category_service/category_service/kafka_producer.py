@@ -21,7 +21,7 @@ class KafkaProducer:
         body: Dict = json_dump(statistic_message.dict())
 
         async with AsyncClient() as client:
-            func = client.post(f'http://{self._host}:{self._port}/statistics', json=body)
+            func = client.post(f'http://158.160.164.167/api/statistic-service/statistics', json=body)
 
             try:
                 response = await func

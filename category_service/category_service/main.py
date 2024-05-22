@@ -13,7 +13,7 @@ app = FastAPI()
 app.include_router(router, tags=['Category API'])
 
 
-@app.get('/manage/health', status_code=status.HTTP_200_OK)
+@app.get('/api/category-service/manage/health', status_code=status.HTTP_200_OK)
 async def check_health() -> Dict:
     return {'Service': 'Category'}
 

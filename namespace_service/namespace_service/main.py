@@ -13,7 +13,7 @@ app = FastAPI()
 app.include_router(router, prefix='/api/namespace-service/namespaces', tags=['Namespace API'])
 
 
-@app.get('http://158.160.164.167/api/namespace-service/manage/health', status_code=status.HTTP_200_OK)
+@app.get('/api/namespace-service/manage/health', status_code=status.HTTP_200_OK)
 async def check_health() -> Dict:
     return {'Service': 'Namespace'}
 
