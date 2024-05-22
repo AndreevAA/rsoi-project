@@ -50,7 +50,7 @@ const actions = {
     get_users_me: (({commit}) => {
         let config = {
             method: 'get',
-            url: '/api/users/me/',
+            url: 'http://158.160.164.167/api/identity-provider/users/me/',
             headers: {
                 'Authorization': 'Bearer ' + defaultModule.state.token
             },
