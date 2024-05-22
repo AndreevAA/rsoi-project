@@ -63,7 +63,7 @@ const actions = {
 const mutations = {
     set_token: (state, token) => {
         state.token = token
-        router.push('/api/gateway-service/profile')
+        router.push('/profile')
     },
     set_error: (state, error) => {
         state.error = error
