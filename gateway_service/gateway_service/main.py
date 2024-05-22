@@ -15,11 +15,11 @@ from gateway_service.api.statistics_api import router as statistics_router
 from gateway_service.exceptions import NotFoundError, ServiceNotAvailableError, UnauthorizedError, AccessDenied
 
 app = FastAPI()
-app.include_router(categories_router, prefix='http://158.160.164.167/api/category-service/', tags=['Categories'])
-app.include_router(users_router, prefix='http://158.160.164.167/api/identity-provider/', tags=['Users'])
-app.include_router(namespace_router, prefix='http://158.160.164.167/api/namespace-service/', tags=['Namespaces'])
-app.include_router(notes_router, prefix='http://158.160.164.167/api/notes-service/', tags=['Notes'])
-app.include_router(statistics_router, prefix='http://158.160.164.167/api/statistic-service/', tags=['Statistics'])
+app.include_router(categories_router, prefix='/api/category-service/', tags=['Categories'])
+app.include_router(users_router, prefix='/api/identity-provider/', tags=['Users'])
+app.include_router(namespace_router, prefix='/api/namespace-service/', tags=['Namespaces'])
+app.include_router(notes_router, prefix='/api/notes-service/', tags=['Notes'])
+app.include_router(statistics_router, prefix='/api/statistic-service/', tags=['Statistics'])
 
 
 app.add_middleware(
