@@ -12,7 +12,7 @@ const actions = {
     get_namespaces: (({commit}) => {
         let config = {
             method: 'get',
-            url: '/namespaces/',
+            url: 'http://158.160.164.167/api/gateway-service/namespaces/',
             headers: {
                 'Authorization': 'Bearer ' + defaultModule.state.token
             }
@@ -30,7 +30,7 @@ const actions = {
     get_namespace: (({commit}, namespace) => {
         let config = {
             method: 'get',
-            url: '/namespaces/' + namespace.namespace.id,
+            url: 'http://158.160.164.167/api/gateway-service/namespaces/' + namespace.namespace.id,
             headers: {
                 'Authorization': 'Bearer ' + defaultModule.state.token
             }
@@ -49,7 +49,7 @@ const actions = {
     put_namespace: ((namespaceId) => {
         let config = {
             method: 'put',
-            url: '/namespaces/' + namespaceId,
+            url: 'http://158.160.164.167/api/gateway-service/namespaces/' + namespaceId,
             headers: {
                 'Authorization': 'Bearer ' + defaultModule.state.token
             }
@@ -75,7 +75,7 @@ const mutations = {
     post_namespaces: (state, name) => {
         let config = {
             method: 'post',
-            url: '/namespaces/',
+            url: 'http://158.160.164.167/api/gateway-service/namespaces/',
             headers: {
                 'Authorization': 'Bearer ' + defaultModule.state.token
             },
@@ -95,7 +95,7 @@ const mutations = {
     delete_namespace: (state, namespaceId) => {
         let config = {
             method: 'delete',
-            url: '/namespaces/' + namespaceId.namespaceId,
+            url: 'http://158.160.164.167/api/gateway-service/namespaces/' + namespaceId.namespaceId,
             headers: {
                 'Authorization': 'Bearer ' + defaultModule.state.token
             }
@@ -113,7 +113,7 @@ const mutations = {
     add_user_to_namespace: (state, id) => {
         let config = {
             method: 'post',
-            url: '/namespaces/' + id.namespaceId + '/users/' + id.userId,
+            url: 'http://158.160.164.167/api/gateway-service/namespaces/' + id.namespaceId + '/users/' + id.userId,
             headers: {
                 'Authorization': 'Bearer ' + defaultModule.state.token
             }
@@ -130,7 +130,7 @@ const mutations = {
     delete_user_from_namespace: (state, namespaceId) => {
         let config = {
             method: 'delete',
-            url: '/namespaces/' + namespaceId + '/users',
+            url: 'http://158.160.164.167/api/gateway-service/namespaces/' + namespaceId + '/users',
             headers: {
                 'Authorization': 'Bearer ' + defaultModule.state.token
             }

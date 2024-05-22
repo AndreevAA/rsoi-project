@@ -13,7 +13,7 @@ const actions = {
     get_notes: (({commit}, namespaceId) => {
         let config = {
             method: 'get',
-            url: '/notes/?namespace_id=' + namespaceId.namespaceId,
+            url: 'http://158.160.164.167/api/gateway-service/notes/?namespace_id=' + namespaceId.namespaceId,
             headers: {
                 'Authorization': 'Bearer ' + defaultModule.state.token
             }
@@ -31,7 +31,7 @@ const actions = {
     get_note: (({commit}, noteId) => {
         let config = {
             method: 'get',
-            url: '/notes/' + noteId.noteId,
+            url: 'http://158.160.164.167/api/gateway-service/notes/' + noteId.noteId,
             headers: {
                 'Authorization': 'Bearer ' + defaultModule.state.token
             }
@@ -62,7 +62,7 @@ const mutations = {
     create_note: (state, note) => {
         let config = {
             method: 'post',
-            url: '/notes',
+            url: 'http://158.160.164.167/api/gateway-service/notes',
             headers: {
                 'Authorization': 'Bearer ' + defaultModule.state.token
             },
@@ -85,7 +85,7 @@ const mutations = {
     delete_note: (state, noteId) => {
         let config = {
             method: 'delete',
-            url: '/notes/' + noteId.noteId,
+            url: 'http://158.160.164.167/api/gateway-service/notes/' + noteId.noteId,
             headers: {
                 'Authorization': 'Bearer ' + defaultModule.state.token
             }

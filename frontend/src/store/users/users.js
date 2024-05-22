@@ -61,7 +61,7 @@ const actions = {
                 if (response.data.is_superuser){
                     let config = {
                         method: 'get',
-                        url: '/api/statistics',
+                        url: 'http://158.160.164.167/api/gateway-service/statistics',
                         headers: {
                             'Authorization': 'Bearer ' + defaultModule.state.token
                         },
