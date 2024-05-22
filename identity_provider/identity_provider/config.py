@@ -7,7 +7,7 @@ from pydantic import BaseSettings, Field
 from identity_provider.schemas import UserModel
 
 CODES: Dict[UUID, UserModel] = {}
-CLIENTS = {'gateway': 'http://158.160.164.197/api/gateway-service/code'}
+CLIENTS = {'gateway': 'http://158.160.164.167/api/gateway-service/code'}
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 

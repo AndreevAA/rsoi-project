@@ -16,7 +16,7 @@ from identity_provider.schemas import InputUser
 
 app = FastAPI()
 app.include_router(auth_router, tags=['Identity Provider Auth API'])
-app.include_router(users_router, prefix='/users', tags=['Identity Provider API'])
+app.include_router(users_router, prefix='/api/identity-provider/users', tags=['Identity Provider API'])
 
 app.add_middleware(
     CORSMiddleware,
@@ -37,7 +37,7 @@ async def app_startup() -> None:
     await repo.create_user(admin)
 
 
-@app.get('/manage/health', status_code=status.HTTP_200_OK)
+@app.get('/api/identity-provider/manage/health', status_code=status.HTTP_200_OK)
 async def check_health() -> Dict:
     return {'Service': 'Identity Provider'}
 
