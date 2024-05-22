@@ -12,7 +12,7 @@ const actions = {
     get_categories: (({commit}, namespaceId) => {
         let config = {
             method: 'get',
-            url: 'http://158.160.164.167/api/gateway-service/categories/?namespace_id=' + namespaceId.namespaceId,
+            url: 'http://158.160.164.167/api/category-service/categories/?namespace_id=' + namespaceId.namespaceId,
             headers: {
                 'Authorization': 'Bearer ' + defaultModule.state.token
             }
@@ -35,7 +35,7 @@ const mutations = {
     post_category: (state, data) => {
         let config = {
             method: 'post',
-            url: 'http://158.160.164.167/api/gateway-service/categories/',
+            url: 'http://158.160.164.167/api/category-service/categories/',
             headers: {
                 'Authorization': 'Bearer ' + defaultModule.state.token
             },
@@ -57,7 +57,7 @@ const mutations = {
     delete_category: (state, categoryId) => {
         let config = {
             method: 'delete',
-            url: 'http://158.160.164.167/api/gateway-service/categories/' + categoryId.categoryId,
+            url: 'http://158.160.164.167/api/category-service/categories/' + categoryId.categoryId,
             headers: {
                 'Authorization': 'Bearer ' + defaultModule.state.token
             }
