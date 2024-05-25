@@ -66,7 +66,7 @@ async def delete_category(
     await kafka.pull(f'Deleted category {category.name} from namespace {category.namespace_id}')
 
 
-@router.get('/api/category-service/notes/{note_id}/categories', status_code=status.HTTP_200_OK, response_model=NoteCategories)
+@router.get('/api/category-service/categories', status_code=status.HTTP_200_OK, response_model=NoteCategories)
 async def get_note_categories(
     note_id: UUID,
     repo: CategoryRepository = Depends(get_category_repo),
@@ -76,7 +76,7 @@ async def get_note_categories(
     return NoteCategories(items=categories)
 
 
-@router.post('/api/category-service/notes/{note_id}/categories/{category_id}', status_code=status.HTTP_204_NO_CONTENT)
+@router.post('/api/category-service/categories/{category_id}', status_code=status.HTTP_204_NO_CONTENT)
 async def add_category_to_note(
     note_id: UUID,
     category_id: UUID,
@@ -89,7 +89,7 @@ async def add_category_to_note(
     await kafka.pull(f'Added category {category.name} to note {note_id}')
 
 
-@router.delete('/api/category-service/notes/{note_id}/categories/{category_id}', status_code=status.HTTP_204_NO_CONTENT)
+@router.delete('/api/category-service/categories/{category_id}', status_code=status.HTTP_204_NO_CONTENT)
 async def delete_category_from_note(
     note_id: UUID,
     category_id: UUID,
